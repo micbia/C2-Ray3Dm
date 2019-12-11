@@ -350,9 +350,9 @@ contains
       paramsdcm(:) = params_dcm(idx_z,2:4)*w1 + params_dcm(idx_z+1,2:4)*w2
 
       ! loop over density grid
-      do i = 1, mesh(1)
+      do k = 1, mesh(1)
          do j = 1, mesh(2)
-            do k = 1, mesh(3)
+            do i = 1, mesh(3)
                   clumping_grid(i,j,k) = paramsdcm(1) * ndens(i,j,k)/avg_dens * ndens(i,j,k)/avg_dens &
                      + paramsdcm(2) * ndens(i,j,k)/avg_dens + paramsdcm(3)
             end do
@@ -393,9 +393,9 @@ contains
       print *,
 
       ! loop over density grid
-      do i = 1, mesh(1)
+      do k = 1, mesh(1)
          do j = 1, mesh(2)
-            do k = 1, mesh(3)
+            do i = 1, mesh(3)
                   if(ndens(i,j,k)/avg_dens < minval(paramsscm(:,5))) then
                      ! redshift weighted parameters for DCM
                      pardcm(:) = params_dcm(idx_z,2:4)*w1 + params_dcm(idx_z+1,2:4)*w2
